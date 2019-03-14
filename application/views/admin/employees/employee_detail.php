@@ -47,13 +47,19 @@ $sc_show = $ar_sc[1];
                         <?php echo form_open('admin/employees/basic_info', $attributes, $hidden);?>
                         <div class="bg-white">
                           <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                               <div class="form-group">
                                 <label for="first_name"><?php echo $this->lang->line('xin_employee_first_name');?></label>
                                 <input class="form-control" placeholder="<?php echo $this->lang->line('xin_employee_first_name');?>" name="first_name" type="text" value="<?php echo $first_name;?>">
                               </div>
                             </div>
-                            <div class="col-md-6">
+                              <div class="col-md-4">
+                                  <div class="form-group">
+                                      <label for="middle_name"><?php echo $this->lang->line('xin_employee_middle_name');?></label>
+                                      <input class="form-control" placeholder="<?php echo $this->lang->line('xin_employee_middle_name');?>" name="middle_name" type="text" value="<?php echo $middle_name;?>">
+                                  </div>
+                              </div>
+                            <div class="col-md-4">
                               <div class="form-group">
                                 <label for="last_name" class="control-label"><?php echo $this->lang->line('xin_employee_last_name');?></label>
                                 <input class="form-control" placeholder="<?php echo $this->lang->line('xin_employee_last_name');?>" name="last_name" type="text" value="<?php echo $last_name;?>">
@@ -195,6 +201,34 @@ $sc_show = $ar_sc[1];
                               </div>
                             </div>
                           </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="employee_card"><?php echo $this->lang->line('xin_employee_card');?></label>
+                                        <input class="form-control" placeholder="<?php echo $this->lang->line('xin_employee_card');?>" name="employee_card" type="text" value="<?php echo $employee_card;?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="employee_pan_card"><?php echo $this->lang->line('xin_employee_pan_card');?></label>
+                                        <input class="form-control" placeholder="<?php echo $this->lang->line('xin_employee_pan_card');?>" name="employee_pan_card" type="text" value="<?php echo $employee_pan_card;?>">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="esic"><?php echo $this->lang->line('xin_employee_esic');?></label>
+                                        <input class="form-control" placeholder="<?php echo $this->lang->line('xin_employee_esic');?>" name="esic_no" type="text" value="<?php echo $esic_no;?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="pf"><?php echo $this->lang->line('xin_employee_pf');?></label>
+                                        <input class="form-control" placeholder="<?php echo $this->lang->line('xin_employee_pf');?>" name="pf_no" type="text" value="<?php echo $pf_no;?>">
+                                    </div>
+                                </div>
+                            </div>
                           <div class="row">
                             <div class="col-md-12">
                               <div class="form-group">
@@ -203,6 +237,14 @@ $sc_show = $ar_sc[1];
                               </div>
                             </div>
                           </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="permanent_address"><?php echo $this->lang->line('xin_employee_permanent_address');?></label>
+                                        <textarea class="form-control" placeholder="<?php echo $this->lang->line('xin_employee_permanent_address');?>" name="permanent_address" cols="30" rows="3" id="permanent_address"><?php echo $permanent_address;?></textarea>
+                                    </div>
+                                </div>
+                            </div>
                           <div class="form-actions box-footer"> <?php echo form_button(array('name' => 'hrsale_form', 'type' => 'submit', 'class' => $this->Xin_model->form_button_class(), 'content' => '<i class="fa fa fa-check-square-o"></i> '.$this->lang->line('xin_save'))); ?> </div>
                         </div>
                         <?php echo form_close(); ?> </div>

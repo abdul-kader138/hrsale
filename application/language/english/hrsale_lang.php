@@ -517,7 +517,7 @@ $lang['xin_gender_female'] = "Female";
 $lang['xin_employee_office_shift'] = "Office Shift";
 $lang['xin_employee_password'] = "Password";
 $lang['xin_employee_cpassword'] = "Confirm Password";
-$lang['xin_employee_address'] = "Address";
+$lang['xin_employee_address'] = "Local Address";
 $lang['xin_e_details_basic'] = "Basic Information";
 $lang['xin_e_details_user'] = "User";
 $lang['xin_e_details_profileinfo'] = "Profile information";
@@ -2144,6 +2144,15 @@ $lang['xin_payroll_bulk_payment'] = 'Bulk Payment';
 $lang['xin_payroll_download_payslip'] = 'Download Payslip';
 $lang['xin_role_enable'] = 'Enable Module';
 $lang['xin_left_main'] = 'MAIN NAVIGATION';
+
+//codelover138@gmail.com
+$lang['xin_employee_middle_name'] = "Middle Name";
+$lang['xin_employee_card']        = "Employee card no.";
+$lang['xin_employee_pan_card']    = "Pan card no.";
+$lang['xin_employee_esic']        = "ESIC no.";
+$lang['xin_employee_pf']          = "PF no.";
+$lang['xin_employee_permanent_address'] = "Permanent Address";
+
 ///////////////////////////////////////////////// hrsale v1.0.7 end 
 
 /* End of file hrsale_lang.php */

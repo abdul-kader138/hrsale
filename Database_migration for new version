@@ -1,0 +1,6 @@
+ALTER TABLE `xin_employees` ADD `middle_name` VARCHAR(50) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `employee_card` VARCHAR(50) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `employee_pan_card` VARCHAR(50) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `esic_no` VARCHAR(50) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `pf_no` VARCHAR(50) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `permanent_address` MEDIUMTEXT NULL DEFAULT NULL AFTER `created_at`;

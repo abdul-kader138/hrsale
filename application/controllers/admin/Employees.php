@@ -314,6 +314,12 @@ class Employees extends MY_Controller {
 			'breadcrumbs' => $this->lang->line('xin_employee_detail'),
 			'path_url' => 'employees_detail',
 			'first_name' => $result[0]->first_name,
+			'middle_name' => $result[0]->middle_name,
+			'employee_card' => $result[0]->employee_card,
+			'employee_pan_card' => $result[0]->employee_pan_card,
+			'esic_no' => $result[0]->esic_no,
+			'pf_no' => $result[0]->pf_no,
+			'permanent_address' => $result[0]->permanent_address,
 			'last_name' => $result[0]->last_name,
 			'user_id' => $result[0]->user_id,
 			'employee_id' => $result[0]->employee_id,
@@ -985,7 +991,14 @@ class Employees extends MY_Controller {
 		$date_of_birth = $this->Xin_model->clean_date_post($this->input->post('date_of_birth'));
 		$contact_no = $this->Xin_model->clean_post($this->input->post('contact_no'));
 		$address = $this->Xin_model->clean_post($this->input->post('address'));
-	
+
+		$middle_name=$this->Xin_model->clean_post($this->input->post('middle_name'));
+		$employee_card=$this->Xin_model->clean_post($this->input->post('employee_card'));
+		$employee_pan_card=$this->Xin_model->clean_post($this->input->post('employee_pan_card'));
+		$esic_no=$this->Xin_model->clean_post($this->input->post('esic_no'));
+		$pf_no=$this->Xin_model->clean_post($this->input->post('pf_no'));
+		$permanent_address=$this->Xin_model->clean_post($this->input->post('permanent_address'));
+
 		$data = array(
 		'employee_id' => $employee_id,
 		'office_shift_id' => $this->input->post('office_shift_id'),
@@ -999,6 +1012,14 @@ class Employees extends MY_Controller {
 		'user_role_id' => $this->input->post('role'),
 		'department_id' => $this->input->post('department_id'),
 		'designation_id' => $this->input->post('designation_id'),
+
+		'middle_name' => $middle_name,
+		'employee_card' => $employee_card,
+		'employee_pan_card' => $employee_pan_card,
+		'esic_no' => $esic_no,
+		'pf_no' => $pf_no,
+		'permanent_address' => $permanent_address,
+
 		'date_of_joining' => $date_of_joining,
 		'contact_no' => $contact_no,
 		'address' => $address,
