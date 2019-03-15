@@ -4,3 +4,18 @@ ALTER TABLE `xin_employees` ADD `employee_pan_card` VARCHAR(50) NULL DEFAULT Nul
 ALTER TABLE `xin_employees` ADD `esic_no` VARCHAR(50) NULL DEFAULT Null AFTER `created_at`;
 ALTER TABLE `xin_employees` ADD `pf_no` VARCHAR(50) NULL DEFAULT Null AFTER `created_at`;
 ALTER TABLE `xin_employees` ADD `permanent_address` MEDIUMTEXT NULL DEFAULT NULL AFTER `created_at`;
+
+
+ALTER TABLE `xin_employees` ADD `nominee_age` int(6) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `nominee_name` VARCHAR(100) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `relation_with_nominee` VARCHAR(20) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `nominee_date_of_birth` VARCHAR(20) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `nominee_gender` VARCHAR(10) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `nominee_address` MEDIUMTEXT NULL DEFAULT NULL AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `nominee_permanent_address` MEDIUMTEXT NULL DEFAULT NULL AFTER `created_at`;
+ALTER TABLE `xin_companies` CHANGE `username` `username` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+ALTER TABLE `xin_companies` CHANGE `password` `password` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+
+
+

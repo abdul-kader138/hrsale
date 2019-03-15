@@ -101,15 +101,15 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3">
-              <label for="email"><?php echo $this->lang->line('dashboard_username');?></label>
-              <input class="form-control" placeholder="<?php echo $this->lang->line('dashboard_username');?>" name="username" type="text">
-            </div>
-            <div class="col-md-3">
-              <label for="website"><?php echo $this->lang->line('xin_employee_password');?></label>
-              <input class="form-control" placeholder="<?php echo $this->lang->line('xin_employee_password');?>" name="password" type="text">
-            </div>
-            <div class="col-md-6">
+<!--            <div class="col-md-3">-->
+<!--              <label for="email">--><?php //echo $this->lang->line('dashboard_username');?><!--</label>-->
+<!--              <input class="form-control" placeholder="--><?php //echo $this->lang->line('dashboard_username');?><!--" name="username" type="text">-->
+<!--            </div>-->
+<!--            <div class="col-md-3">-->
+<!--              <label for="website">--><?php //echo $this->lang->line('xin_employee_password');?><!--</label>-->
+<!--              <input class="form-control" placeholder="--><?php //echo $this->lang->line('xin_employee_password');?><!--" name="password" type="text">-->
+<!--            </div>-->
+            <div class="col-md-8">
               <fieldset class="form-group">
                 <label for="logo"><?php echo $this->lang->line('xin_company_logo');?></label>
                 <input type="file" class="form-control-file" id="logo" name="logo">

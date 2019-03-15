@@ -1092,5 +1092,16 @@ class employees_model extends CI_Model {
 			return false;
 		}		
 	}
+
+
+    // Function to add record in table > nominee
+    public function nominee_info($data,$id){
+        $this->db->where('user_id', $id);
+        if( $this->db->update('xin_employees',$data)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 ?>

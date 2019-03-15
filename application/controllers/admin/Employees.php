@@ -319,7 +319,14 @@ class Employees extends MY_Controller {
 			'employee_pan_card' => $result[0]->employee_pan_card,
 			'esic_no' => $result[0]->esic_no,
 			'pf_no' => $result[0]->pf_no,
+			'nominee_name' => $result[0]->nominee_name,
 			'permanent_address' => $result[0]->permanent_address,
+			'relation_with_nominee' => $result[0]->relation_with_nominee,
+			'nominee_date_of_birth' => $result[0]->nominee_date_of_birth,
+			'nominee_gender' => $result[0]->nominee_gender,
+			'nominee_age' => $result[0]->nominee_age,
+			'nominee_address' => $result[0]->nominee_address,
+			'nominee_permanent_address' => $result[0]->nominee_permanent_address,
 			'last_name' => $result[0]->last_name,
 			'user_id' => $result[0]->user_id,
 			'employee_id' => $result[0]->employee_id,
@@ -3879,4 +3886,61 @@ class Employees extends MY_Controller {
 		exit;
 		}
 	}
+
+//	codelover138@gmail.com
+
+    public function nominee_info() {
+
+        if($this->input->post('type')=='nominee_info') {
+            /* Define return | here result is used to return user data and error for error message */
+            $Return = array('result'=>'', 'error'=>'', 'csrf_hash'=>'');
+            $Return['csrf_hash'] = $this->security->get_csrf_hash();
+
+            /* Server side PHP input validation */
+            if($this->input->post('nominee_name')==='') {
+                $Return['error'] = $this->lang->line('xin_nominee_error_name');
+            } else if(preg_match("/^(\pL{1,}[ ]?)+$/u",$this->input->post('nominee_name'))!=1) {
+                $Return['error'] = $this->lang->line('xin_hr_string_error');
+            } else if($this->input->post('relation_with_nominee')==='') {
+                $Return['error'] = $this->lang->line('xin_nominee_error_relation');
+            } else if($this->input->post('nominee_date_of_birth')==='') {
+                $Return['error'] = $this->lang->line('xin_nominee_error_birth_date');
+            } else if($this->input->post('nominee_gender')==='') {
+                $Return['error'] = $this->lang->line('xin_nominee_error_gender');
+            } else if($this->input->post('nominee_age')==='') {
+                $Return['error'] = $this->lang->line('xin_nominee_error_age');
+            }
+
+            if($Return['error']!=''){
+                $this->output($Return);
+            }
+
+            $name = $this->Xin_model->clean_post($this->input->post('nominee_name'));
+            $relation_with_nominee = $this->Xin_model->clean_date_post($this->input->post('relation_with_nominee'));
+            $nominee_date_of_birth = $this->Xin_model->clean_date_post($this->input->post('nominee_date_of_birth'));
+            $nominee_gender = $this->Xin_model->clean_date_post($this->input->post('nominee_gender'));
+            $nominee_age = $this->Xin_model->clean_date_post($this->input->post('nominee_age'));
+            $nominee_address = $this->Xin_model->clean_post($this->input->post('nominee_address'));
+            $nominee_permanent_address = $this->Xin_model->clean_post($this->input->post('nominee_permanent_address'));
+            $id = $this->input->post('user_id');
+            $data = array(
+                'nominee_name' => $name,
+                'relation_with_nominee' => $relation_with_nominee,
+                'nominee_date_of_birth' => $nominee_date_of_birth,
+                'nominee_gender' => $nominee_gender,
+                'nominee_age' => $nominee_age,
+                'nominee_address' => $nominee_address,
+                'nominee_permanent_address' => $nominee_permanent_address
+            );
+
+            $result = $this->Employees_model->nominee_info($data,$id);
+            if ($result == TRUE) {
+                $Return['result'] = $this->lang->line('xin_success_update_nominee_info');
+            } else {
+                $Return['error'] = $this->lang->line('xin_error_msg');
+            }
+            $this->output($Return);
+            exit;
+        }
+    }
 }

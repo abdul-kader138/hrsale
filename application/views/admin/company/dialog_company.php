@@ -92,11 +92,11 @@ if(isset($_GET['jd']) && isset($_GET['company_id']) && $_GET['data']=='company')
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6">
-        <label for="email"><?php echo $this->lang->line('dashboard_username');?></label>
-        <input class="form-control" placeholder="<?php echo $this->lang->line('dashboard_username');?>" name="username" type="text" value="<?php echo $username;?>">
-      </div>
-      <div class="col-md-6">
+<!--      <div class="col-md-6">-->
+<!--        <label for="email">--><?php //echo $this->lang->line('dashboard_username');?><!--</label>-->
+<!--        <input class="form-control" placeholder="--><?php //echo $this->lang->line('dashboard_username');?><!--" name="username" type="text" value="--><?php //echo $username;?><!--">-->
+<!--      </div>-->
+      <div class="col-md-8">
         <fieldset class="form-group">
             <label for="logo"><?php echo $this->lang->line('xin_company_logo');?></label>
             <small><?php echo $this->lang->line('xin_company_file_type');?></small> 

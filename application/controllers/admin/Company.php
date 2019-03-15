@@ -246,11 +246,12 @@ class Company extends MY_Controller {
 			$Return['error'] = $this->lang->line('xin_error_zipcode_field');
 		} else if($country==='') {
 			$Return['error'] = $this->lang->line('xin_error_country_field');
-		} else if($this->input->post('username')==='') {
-			$Return['error'] = $this->lang->line('xin_employee_error_username');
-		} else if($this->input->post('password')==='') {
-			$Return['error'] = $this->lang->line('xin_employee_error_password');
 		}
+//		else if($this->input->post('username')==='') {
+//			$Return['error'] = $this->lang->line('xin_employee_error_username');
+//		} else if($this->input->post('password')==='') {
+//			$Return['error'] = $this->lang->line('xin_employee_error_password');
+//		}
 		
 		/* Check if file uploaded..*/
 		else if($_FILES['logo']['size'] == 0) {
@@ -285,8 +286,8 @@ class Company extends MY_Controller {
 		$data = array(
 		'name' => $this->input->post('name'),
 		'type_id' => $this->input->post('company_type'),
-		'username' => $this->input->post('username'),
-		'password' => $this->input->post('password'),
+//		'username' => $this->input->post('username'),
+//		'password' => $this->input->post('password'),
 		'government_tax' => $this->input->post('xin_gtax'),
 		'trading_name' => $this->input->post('trading_name'),
 		'registration_no' => $this->input->post('registration_no'),
@@ -360,9 +361,10 @@ class Company extends MY_Controller {
 			$Return['error'] = $this->lang->line('xin_error_zipcode_field');
 		} else if($country==='') {
 			$Return['error'] = $this->lang->line('xin_error_country_field');
-		} else if($this->input->post('username')==='') {
-			$Return['error'] = $this->lang->line('xin_employee_error_username');
 		}
+//		else if($this->input->post('username')==='') {
+//			$Return['error'] = $this->lang->line('xin_employee_error_username');
+//		}
 		
 		/* Check if file uploaded..*/
 		else if($_FILES['logo']['size'] == 0) {
@@ -370,7 +372,7 @@ class Company extends MY_Controller {
 			 $no_logo_data = array(
 			'name' => $this->input->post('name'),
 			'type_id' => $this->input->post('company_type'),
-			'username' => $this->input->post('username'),
+//			'username' => $this->input->post('username'),
 			'password' => $this->input->post('password'),
 			'government_tax' => $this->input->post('xin_gtax'),
 			'trading_name' => $this->input->post('trading_name'),

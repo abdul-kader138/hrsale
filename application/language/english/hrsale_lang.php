@@ -2152,6 +2152,17 @@ $lang['xin_employee_pan_card']    = "Pan card no.";
 $lang['xin_employee_esic']        = "ESIC no.";
 $lang['xin_employee_pf']          = "PF no.";
 $lang['xin_employee_permanent_address'] = "Permanent Address";
+$lang['xin_e_nominee_info'] = "Nominee Information";
+$lang['xin_e_friend'] = "Friend";
+$lang['xin_e_name'] = "Name";
+$lang['xin_e_age'] = "Age";
+$lang['xin_nominee_error_name']       = "Name field is required.";
+$lang['xin_nominee_error_age']        = "Age field is required.";
+$lang['xin_nominee_error_gender']     = "Gender field is required.";
+$lang['xin_nominee_error_birth_date'] = "Date of Bith field is required.";
+$lang['xin_nominee_error_relation']   = "Relation field is required.";
+$lang['xin_nominee_error_name']       = "Name field is required.";
+$lang['xin_success_update_nominee_info'] = 'Nominee Information updated.';
 
 ///////////////////////////////////////////////// hrsale v1.0.7 end 
 
