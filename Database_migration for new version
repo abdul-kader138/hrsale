@@ -18,4 +18,12 @@ ALTER TABLE `xin_companies` CHANGE `password` `password` VARCHAR(255) CHARACTER 
 
 
 
-
+ALTER TABLE `xin_employees` ADD `proposer_name` VARCHAR(100) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `policy_no` VARCHAR(20) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `policy_type` VARCHAR(30) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `policy_start_date` VARCHAR(20) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `policy_end_date` VARCHAR(20) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `covered_members` int(6) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `sum_insured` int(8) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `cb_amount` int(8) NULL DEFAULT Null AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `mediclaim_status` VARCHAR(5) NOT NULL DEFAULT 'No' AFTER `created_at`;

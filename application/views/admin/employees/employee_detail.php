@@ -84,6 +84,10 @@ $sc_show = $ar_sc[1];
                                            data-toggle="list" href="javascript:void(0);" data-profile="11"
                                            data-profile-block="leave" aria-expanded="true"
                                            id="user_profile_11"><?php echo $this->lang->line('xin_e_details_leave'); ?></a>
+                                        <a class="list-group-item list-group-item-action nav-tabs-link"
+                                           data-toggle="list" href="javascript:void(0);" data-profile="12"
+                                           data-profile-block="user_mediclaim" aria-expanded="true"
+                                           id="user_profile_12"><?php echo $this->lang->line('xin_mediclaim_info'); ?></a>
                                     </div>
                                 </div>
                                 <div class="col-md-9">
@@ -1443,6 +1447,102 @@ $sc_show = $ar_sc[1];
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="tab-pane current-tab <?php echo $get_animate; ?>"
+                                             id="user_mediclaim">
+                                            <div class="box-header with-border">
+                                                <h3 class="box-title"> <?php echo $this->lang->line('xin_mediclaim_info'); ?> </h3>
+                                            </div>
+                                            <div class="box-body pb-2">
+                                                <?php $attributes = array('name' => 'mediclaim', 'id' => 'f_mediclaim', 'autocomplete' => 'off'); ?>
+                                                <?php $hidden = array('user_id' => $user_id, 'u_basic_info' => 'UPDATE'); ?>
+                                                <?php echo form_open('admin/employees/mediclaim', $attributes, $hidden); ?><div class="bg-white">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="first_name"><?php echo $this->lang->line('xin_proposer_name'); ?></label>
+                                                                <input class="form-control"
+                                                                       placeholder="<?php echo $this->lang->line('xin_proposer_name'); ?>"
+                                                                       name="proposer_name" type="text"
+                                                                       value="<?php echo $proposer_name; ?>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="first_name"><?php echo $this->lang->line('xin_policy_no'); ?></label>
+                                                                <input class="form-control"
+                                                                       placeholder="<?php echo $this->lang->line('xin_policy_no'); ?>"
+                                                                       name="policy_no" type="text"
+                                                                       value="<?php echo $policy_no; ?>">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="date_of_birth"><?php echo $this->lang->line('xin_policy_start'); ?></label>
+                                                                <input class="form-control date"
+                                                                       placeholder="<?php echo $this->lang->line('xin_policy_start'); ?>"
+                                                                       name="policy_start_date" type="text" readonly
+                                                                       value="<?php echo $policy_start_date; ?>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="date_of_birth"><?php echo $this->lang->line('xin_policy_end'); ?></label>
+                                                                <input class="form-control date"
+                                                                       placeholder="<?php echo $this->lang->line('xin_policy_end'); ?>"
+                                                                       name="policy_end_date" type="text" readonly
+                                                                       value="<?php echo $policy_end_date; ?>">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="first_name"><?php echo $this->lang->line('xin_policy_type'); ?></label>
+                                                                <input class="form-control"
+                                                                       placeholder="<?php echo $this->lang->line('xin_policy_type'); ?>"
+                                                                       name="policy_type" type="text"
+                                                                       value="<?php echo $policy_type; ?>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="contact_no"
+                                                                       class="control-label"><?php echo $this->lang->line('xin_policy_covered'); ?></label>
+                                                                <input class="form-control"
+                                                                       placeholder="<?php echo $this->lang->line('xin_policy_covered'); ?>"
+                                                                       name="covered_members" type="number"
+                                                                       value="<?php echo $covered_members; ?>">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="contact_no"
+                                                                       class="control-label"><?php echo $this->lang->line('xin_policy_insured'); ?></label>
+                                                                <input class="form-control"
+                                                                       placeholder="<?php echo $this->lang->line('xin_policy_insured'); ?>"
+                                                                       name="sum_insured" type="number"
+                                                                       value="<?php echo $sum_insured; ?>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="contact_no"
+                                                                       class="control-label"><?php echo $this->lang->line('xin_policy_CB'); ?></label>
+                                                                <input class="form-control"
+                                                                       placeholder="<?php echo $this->lang->line('xin_policy_CB'); ?>"
+                                                                       name="cb_amount" type="number"
+                                                                       value="<?php echo $cb_amount; ?>">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions box-footer"> <?php echo form_button(array('name' => 'hrsale_form', 'type' => 'submit', 'class' => $this->Xin_model->form_button_class(), 'content' => '<i class="fa fa fa-check-square-o"></i> ' . $this->lang->line('xin_save'))); ?> </div>
+                                                </div>
+                                                <?php echo form_close(); ?> </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1992,6 +2092,7 @@ $sc_show = $ar_sc[1];
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>

@@ -16,7 +16,7 @@
  */
 
 if (!defined('BASEPATH')) exit('No direct script access allowed');
-	
+
 // Dashboard
 $lang['dashboard_title'] = 'Dashboard';
 $lang['dashboard_main'] = 'Main';
@@ -622,7 +622,7 @@ $lang['xin_e_details_lnkdin'] = "LinkedIn";
 $lang['xin_e_details_blgr'] = "Blogger";
 
 $lang['xin_role_urole'] = 'Roles & Privileges';
-$lang['xin_role_all_menu'] = 'All Menu Access'; 
+$lang['xin_role_all_menu'] = 'All Menu Access';
 $lang['xin_role_cmenu'] = 'Custom Menu Access';
 $lang['xin_role_set'] = "Set New";
 $lang['xin_roles'] = "Roles";
@@ -1727,7 +1727,7 @@ $lang['xin_import_employees'] = 'Import Employees';
 $lang['xin_employee_imp_allowed_size'] = 'Please select csv or excel file (allowed file size 2MB)';
 $lang['xin_employee_import_csv_file'] = 'Import CSV file only';
 $lang['xin_employee_import_description_line1'] = 'The first line in downloaded csv file should remain as it is. Please do not change the order of columns in csv file.';
-$lang['xin_employee_import_description_line2'] = 'The correct column order is (First Name, Last Name, Username, Email, Password, Employee ID, Date of Joining, Gender, Date of Birth, Contact Number, Address) and you must follow the csv file, otherwise you will get an error while importing the csv file.';
+$lang['xin_employee_import_description_line2'] = 'The correct column order is (First Name, Last Name, Username, Email, Password, Employee ID, Date of Joining, Gender, Date of Birth, Contact Number, Address,Mediclaim) and you must follow the csv file, otherwise you will get an error while importing the csv file.';
 $lang['xin_employee_import_download_sample'] = 'Download sample File';
 $lang['xin_employee_upload_file'] = 'Upload File';
 $lang['xin_error_employees_import_size'] = 'File size is greater than 2MB.';
@@ -2163,6 +2163,23 @@ $lang['xin_nominee_error_birth_date'] = "Date of Bith field is required.";
 $lang['xin_nominee_error_relation']   = "Relation field is required.";
 $lang['xin_nominee_error_name']       = "Name field is required.";
 $lang['xin_success_update_nominee_info'] = 'Nominee Information updated.';
+$lang['xin_proposer_name']                  = 'Proposer Name';
+$lang['xin_policy_no']                      = 'Policy No';
+$lang['xin_policy_start']                   = 'Policy Start Date';
+$lang['xin_policy_end']                     = 'Policy End Date';
+$lang['xin_policy_type']                     = 'Policy Type';
+$lang['xin_policy_covered']                 = 'Covered Members';
+$lang['xin_policy_insured']                 = 'Sum Insured';
+$lang['xin_policy_CB']                      = 'CB Amount';
+$lang['xin_mediclaim_info']                 = 'Mediclaim Information';
+$lang['xin_policy_error_no']                = "Policy No. field is required.";
+$lang['xin_policy_error_type']              = "Policy type field is required.";
+$lang['xin_policy_error_start']             = "Start Date field is required.";
+$lang['xin_policy_error_end']               = "End Date field is required.";
+$lang['xin_policy_error_member']            = "Covered Members field is required.";
+$lang['xin_policy_error_insured']           = "Sum I    nsured field is required.";
+$lang['xin_policy_error_cb']                = "CB Ammount field is required.";
+$lang['xin_success_update_mediclaim_info']  = 'Mediclaim Information updated.';
 
 ///////////////////////////////////////////////// hrsale v1.0.7 end 
 

@@ -10,6 +10,12 @@ $(document).ready(function() {
 		"fnDrawCallback": function(settings){
 		$('[data-toggle="tooltip"]').tooltip();          
 		}*/
+       dom: 'lBfrtip',
+       "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+       "buttons": [
+           {extend: 'csv',title: 'Datewise Attendance Report'},
+           {extend: 'excel', title: 'Datewise Attendance Report'},
+           {extend: 'pdf', title: 'Datewise Attendance Report'}]
     });
 	
 	$('[data-plugin="select_hrm"]').select2($(this).attr('data-options'));
@@ -64,7 +70,14 @@ $(document).ready(function() {
 				url : site_url+"timesheet/date_wise_list/?start_date="+start_date+"&end_date="+end_date+"&user_id="+user_id,
 				type : 'GET'
 			},
-			/*dom: 'lBfrtip',
+			dom: 'lBfrtip',
+			"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+            "buttons": [
+                {extend: 'csv',title: 'Datewise Attendance Report'},
+                {extend: 'excel', title: 'Datewise Attendance Report'},
+                {extend: 'pdf', title: 'Datewise Attendance Report'}]
+
+			/*
 			"buttons": ['csv', 'excel', 'pdf', 'print'], // colvis > if needed
 			"fnDrawCallback": function(settings){
 			$('[data-toggle="tooltip"]').tooltip();          
