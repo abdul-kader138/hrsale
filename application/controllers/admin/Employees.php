@@ -362,6 +362,9 @@ class Employees extends MY_Controller
             'salary_ssempee' => $result[0]->salary_ssempee,
             'salary_ssempeer' => $result[0]->salary_ssempeer,
             'salary_income_tax' => $result[0]->salary_income_tax,
+            'salary_esi_employee' => $result[0]->salary_esi_employee,
+            'salary_esi_employer' => $result[0]->salary_esi_employer,
+            'salary_professional_tax' => $result[0]->salary_professional_tax,
             'salary_overtime' => $result[0]->salary_overtime,
             'salary_commission' => $result[0]->salary_commission,
             'salary_claims' => $result[0]->salary_claims,
@@ -3932,7 +3935,10 @@ class Employees extends MY_Controller
             $data = array(
                 'salary_ssempee' => $this->input->post('salary_ssempee'),
                 'salary_ssempeer' => $this->input->post('salary_ssempeer'),
-                'salary_income_tax' => $this->input->post('salary_income_tax')
+                'salary_income_tax' => $this->input->post('salary_income_tax'),
+                'salary_esi_employee' => $this->input->post('salary_esi_employee'),
+                'salary_esi_employer' => $this->input->post('salary_esi_employer'),
+                'salary_professional_tax' => $this->input->post('salary_professional_tax')
             );
             $id = $this->input->post('user_id');
             $result = $this->Employees_model->basic_info($data, $id);

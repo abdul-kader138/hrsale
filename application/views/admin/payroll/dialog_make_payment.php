@@ -105,10 +105,27 @@ if($salary_income_tax == '' && $salary_income_tax == 0){
 } else {
 	$s_income_tax = $sta_salary / 100 * $salary_income_tax;
 }
-$statutory_deductions = $s_ssempee + $s_income_tax;
+
+// esi deduction
+    $s_esiempee = 0;
+    if($salary_ssempee == '' && $salary_ssempee == 0){
+        $s_esiempee = 0;
+    } else {
+        $s_esiempee = $sta_salary / 100 * $salary_esi_employee;
+    }
+
+ // professional tax
+    $s_protax = 0;
+    if($salary_professional_tax == '' && $salary_professional_tax == 0){
+        $s_protax = 0;
+    } else {
+        $s_protax = $salary_professional_tax;
+    }
+
+$statutory_deductions = $s_ssempee + $s_income_tax +$s_esiempee +$s_protax;
 //if($r->salary_advance_paid == ''){
 //$data1 = $add_salary. ' - ' .$loan_de_amount. ' - ' .$net_salary . ' - ' .$salary_ssempee . ' - ' .$statutory_deductions;
-$net_salary = $net_salary_default + $statutory_deductions;
+$net_salary = $net_salary_default - $statutory_deductions;
 $net_salary = number_format((float)$net_salary, 2, '.', '');
 ?>
 <div class="modal-header">
@@ -126,7 +143,7 @@ $net_salary = number_format((float)$net_salary, 2, '.', '');
           <input type="hidden" name="designation_id" value="<?php echo $designation_id;?>" />
           <input type="hidden" name="company_id" value="<?php echo $company_id;?>" />
           <label for="name"><?php echo $this->lang->line('xin_payroll_basic_salary');?></label>
-          <input type="text" name="gross_salary" class="form-control" value="<?php echo $basic_salary;?>">
+          <input type="text" name="gross_salary" class="form-control" readonly value="<?php echo $basic_salary;?>">
           <input type="hidden" id="emp_id" value="<?php echo $user_id?>" name="emp_id">
           <input type="hidden" value="<?php echo $user_id;?>" name="u_id">
           <input type="hidden" value="<?php echo $basic_salary;?>" name="basic_salary">
@@ -143,6 +160,8 @@ $net_salary = number_format((float)$net_salary, 2, '.', '');
     <input type="hidden" name="salary_ssempee" value="<?php echo $s_ssempee;?>">
     <input type="hidden" name="salary_ssempeer" value="<?php echo $s_ssempeer;?>">
     <input type="hidden" name="salary_income_tax" value="<?php echo $s_income_tax;?>">
+    <input type="hidden" name="salary_professional_tax" value="<?php echo $s_protax;?>">
+    <input type="hidden" name="salary_esi_employee" value="<?php echo $s_esiempee;?>">
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">

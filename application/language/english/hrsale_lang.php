@@ -2066,8 +2066,8 @@ $lang['xin_employee_set_allowances'] = 'Allowances';
 $lang['xin_employee_set_statutory_deductions'] = 'Statutory deductions';
 $lang['xin_employee_set_loan_deductions'] = 'Loan';
 $lang['xin_employee_set_other_payment'] = 'Other Payment';
-$lang['xin_employee_set_ssempee'] = 'Social Security Employee';
-$lang['xin_employee_set_ssempeer'] = 'Social Security Employer';
+$lang['xin_employee_set_ssempee'] = 'Provident Fund(Employee)';
+$lang['xin_employee_set_ssempeer'] = 'Provident Fund (Employer)';
 $lang['xin_employee_set_inc_tax'] = 'Income Tax';
 $lang['xin_employee_set_oth_commission'] = 'Commission';
 $lang['xin_employee_set_oth_claims'] = 'Claims';
@@ -2180,6 +2180,9 @@ $lang['xin_policy_error_member']            = "Covered Members field is required
 $lang['xin_policy_error_insured']           = "Sum I    nsured field is required.";
 $lang['xin_policy_error_cb']                = "CB Ammount field is required.";
 $lang['xin_success_update_mediclaim_info']  = 'Mediclaim Information updated.';
+$lang['xin_employee_set_esi']               = 'ESI(Employee)';
+$lang['xin_employee_set_esi_employeer']     = 'ESI(Employer)';
+$lang['xin_employee_set_inc_tax_pro']       = 'Professional tax';
 
 ///////////////////////////////////////////////// hrsale v1.0.7 end 
 

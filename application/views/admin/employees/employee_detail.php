@@ -1920,6 +1920,42 @@ $sc_show = $ar_sc[1];
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="salary_ssempee"><?php echo $this->lang->line('xin_employee_set_esi'); ?>
+                                                                &nbsp;(%)</label>
+                                                            <input class="form-control"
+                                                                   placeholder="<?php echo $this->lang->line('xin_amount'); ?>"
+                                                                   name="salary_esi_employee" type="text"
+                                                                   value="<?php echo $salary_esi_employee; ?>"
+                                                                   id="salary_esi_employee">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="salary_ssempeer"><?php echo $this->lang->line('xin_employee_set_esi_employeer'); ?>
+                                                                &nbsp;(%)</label>
+                                                            <input class="form-control"
+                                                                   placeholder="<?php echo $this->lang->line('xin_amount'); ?>"
+                                                                   name="salary_esi_employer" type="text"
+                                                                   value="<?php echo $salary_esi_employer; ?>"
+                                                                   id="salary_esi_employer">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="salary_income_tax"><?php echo $this->lang->line('xin_employee_set_inc_tax_pro'); ?>
+                                                                (Amount)</label>
+                                                            <input class="form-control"
+                                                                   placeholder="<?php echo $this->lang->line('xin_amount'); ?>"
+                                                                   name="salary_professional_tax" type="text"
+                                                                   value="<?php echo $salary_professional_tax; ?>"
+                                                                   id="salary_professional_tax">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">

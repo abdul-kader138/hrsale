@@ -389,6 +389,37 @@ if($profile_picture!='' && $profile_picture!='no file') {
                           <?php } ?>
                           </span></td>
                       </tr>
+                      <tr>
+                          <td><strong><?php echo $this->lang->line('xin_employee_set_esi');?> (<?php echo $salary_esi_employee;?>%):</strong> <span class="pull-right">
+                          <?php if($salary_esi_employee!='' && $salary_esi_employee!=0){?>
+                              <?php $sta_salary_2 = $allowance_amount + $basic_salary;?>
+                              <?php $salary_esi_employee = $sta_salary_2 / 100 * $salary_esi_employee;?>
+                              <?php echo $salary_esi_employee = $this->Xin_model->currency_sign($salary_esi_employee);?>
+                          <?php } else {?>
+                              <?php $salary_esi_employee = 0;?>
+                          <?php } ?>
+                          </span></td>
+                      </tr>
+                      <tr>
+                          <td><strong><?php echo $this->lang->line('xin_employee_set_esi_employeer');?> (<?php echo $salary_esi_employer;?>%):</strong> <span class="pull-right">
+                          <?php if($salary_esi_employer!='' && $salary_esi_employer!=0){?>
+                              <?php $sta_salary_3 = $allowance_amount + $basic_salary;?>
+                              <?php $salary_esi_employer = $sta_salary_3 / 100 * $salary_esi_employer;?>
+                              <?php echo $salary_esi_employer = $this->Xin_model->currency_sign($salary_esi_employer);?>
+                          <?php } else {?>
+                              <?php $salary_esi_employer = 0;?>
+                          <?php } ?>
+                          </span></td>
+                      </tr>
+                      <tr>
+                          <td><strong><?php echo $this->lang->line('xin_employee_set_inc_tax_pro');?> (Amount):</strong> <span class="pull-right">
+                          <?php if($salary_professional_tax!='' && $salary_professional_tax!=0){?>
+                              <?php echo $salary_professional_tax = $this->Xin_model->currency_sign($salary_professional_tax);;?>
+                          <?php } else {?>
+                              <?php $salary_professional_tax = 0;?>
+                          <?php } ?>
+                          </span></td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>

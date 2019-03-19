@@ -27,3 +27,10 @@ ALTER TABLE `xin_employees` ADD `covered_members` int(6) NULL DEFAULT Null AFTER
 ALTER TABLE `xin_employees` ADD `sum_insured` int(8) NULL DEFAULT Null AFTER `created_at`;
 ALTER TABLE `xin_employees` ADD `cb_amount` int(8) NULL DEFAULT Null AFTER `created_at`;
 ALTER TABLE `xin_employees` ADD `mediclaim_status` VARCHAR(5) NOT NULL DEFAULT 'No' AFTER `created_at`;
+
+
+ALTER TABLE `xin_employees` ADD `salary_esi_employee` VARCHAR(200) NOT NULL DEFAULT '0' AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `salary_esi_employer` VARCHAR(200) NOT NULL DEFAULT '0' AFTER `created_at`;
+ALTER TABLE `xin_employees` ADD `salary_professional_tax` VARCHAR(200) NOT NULL DEFAULT '0' AFTER `created_at`;
+ALTER TABLE `xin_salary_payslips` ADD `salary_professional_tax` VARCHAR(200) NOT NULL DEFAULT '0' AFTER `created_at`;
+ALTER TABLE `salary_esi_employee` ADD `salary_esi_employee` VARCHAR(200) NOT NULL DEFAULT '0' AFTER `created_at`;
