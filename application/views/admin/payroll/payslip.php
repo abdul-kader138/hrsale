@@ -128,7 +128,7 @@
           <?php else:?>
           <?php $loan_de_amount = 0;?>
           <?php endif;?>
-          <?php if(($salary_ssempee!='' && $salary_ssempee!=0) || ($salary_ssempeer!='' && $salary_ssempeer!=0) || ($salary_income_tax!='' && $salary_income_tax!=0)){?>
+          <?php if(($salary_ssempee!='' && $salary_ssempee!=0) || ($salary_ssempeer!='' && $salary_ssempeer!=0) || ($salary_income_tax!='' && $salary_income_tax!=0) || ($salary_esi_employee!='' && $salary_esi_employee!=0) || ($salary_professional_tax!='' && $salary_professional_tax!=0)){?>
           <div class="card mb-2">
             <div class="card-header"> <a class="text-dark collapsed" data-toggle="collapse" href="#statutory_deductions" aria-expanded="false"> <strong><?php echo $this->lang->line('xin_employee_set_statutory_deductions');?></strong> </a> </div>
             <div id="statutory_deductions" class="collapse" data-parent="#accordion" style="">
@@ -146,16 +146,16 @@
                         <?php } ?>
                         </span></td>
                       </tr>
-                      <tr>
-                        <td><strong><?php echo $this->lang->line('xin_employee_set_ssempeer');?>:</strong> <span class="pull-right">
-                        <?php if($salary_ssempeer!='' && $salary_ssempeer!=0){?>
-							<?php echo $salary_ssempeer = $this->Xin_model->currency_sign($salary_ssempeer);?>
-                        <?php } else {?>
-							<?php $salary_ssempeer = 0;?>
-                            <?php echo $salary_ssempeer = $this->Xin_model->currency_sign($salary_ssempeer);?>
-                        <?php } ?>
-                        </span></td>
-                      </tr>
+<!--                      <tr>-->
+<!--                        <td><strong>--><?php //echo $this->lang->line('xin_employee_set_ssempeer');?><!--:</strong> <span class="pull-right">-->
+<!--                        --><?php //if($salary_ssempeer!='' && $salary_ssempeer!=0){?>
+<!--							--><?php //echo $salary_ssempeer = $this->Xin_model->currency_sign($salary_ssempeer);?>
+<!--                        --><?php //} else {?>
+<!--							--><?php //$salary_ssempeer = 0;?>
+<!--                            --><?php //echo $salary_ssempeer = $this->Xin_model->currency_sign($salary_ssempeer);?>
+<!--                        --><?php //} ?>
+<!--                        </span></td>-->
+<!--                      </tr>-->
                       <tr>
                         <td><strong><?php echo $this->lang->line('xin_employee_set_inc_tax');?>:</strong> <span class="pull-right">
                         <?php if($salary_income_tax!='' && $salary_income_tax!=0){?>
@@ -163,6 +163,26 @@
                         <?php } else {?>
                         	<?php echo $ssalary_income_tax = $this->Xin_model->currency_sign($salary_income_tax);?>
 							<?php $ssalary_income_tax = 0;?>
+                        <?php } ?>
+                        </span></td>
+                      </tr>
+                      <tr>
+                          <td><strong><?php echo $this->lang->line('xin_employee_set_esi');?>:</strong> <span class="pull-right">
+                        <?php if($salary_esi_employee!='' && $salary_esi_employee!=0){?>
+                            <?php echo $salary_esi_employee = $this->Xin_model->currency_sign($salary_esi_employee);?>
+                        <?php } else {?>
+                            <?php echo $salary_esi_employee = $this->Xin_model->currency_sign($salary_esi_employee);?>
+                            <?php $salary_esi_employee = 0;?>
+                        <?php } ?>
+                        </span></td>
+                      </tr>
+                      <tr>
+                          <td><strong><?php echo $this->lang->line('xin_employee_set_inc_tax_pro');?>:</strong> <span class="pull-right">
+                        <?php if($salary_professional_tax!='' && $salary_professional_tax!=0){?>
+                            <?php echo $salary_professional_tax = $this->Xin_model->currency_sign($salary_professional_tax);?>
+                        <?php } else {?>
+                            <?php echo $salary_professional_tax = $this->Xin_model->currency_sign($salary_professional_tax);?>
+                            <?php $salary_professional_tax = 0;?>
                         <?php } ?>
                         </span></td>
                       </tr>
@@ -322,7 +342,8 @@
 						$bs = $daily_wages;
 					}
 					$total_earning = $bs + $total_allowances + $overtime_amount;
-					$total_deduction = $loan_de_amount + $salary_income_tax + $salary_ssempee;
+//					$total_deduction = $loan_de_amount + $salary_income_tax + $salary_ssempee + $salary_professional_tax + $salary_esi_employee;
+					$total_deduction = $loan_de_amount + $statutory_deductions;
 					$total_net_salary = $total_earning - $total_deduction;
 				  ?>
                   <tr>
