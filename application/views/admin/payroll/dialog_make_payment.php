@@ -94,11 +94,11 @@ if($salary_ssempee == '' && $salary_ssempee == 0){
 	$s_ssempee = $sta_salary / 100 * $salary_ssempee;
 }
 $s_ssempeer = 0;
-/*if($salary_ssempeer == '' && $salary_ssempeer == 0){
+if($salary_ssempeer == '' && $salary_ssempeer == 0){
 	$s_ssempeer = 0;
 } else {
 	$s_ssempeer = $sta_salary / 100 * $salary_ssempeer;
-}*/
+}
 $s_income_tax = 0;
 if($salary_income_tax == '' && $salary_income_tax == 0){
 	$s_income_tax = 0;
@@ -108,12 +108,18 @@ if($salary_income_tax == '' && $salary_income_tax == 0){
 
 // esi deduction
     $s_esiempee = 0;
-    if($salary_ssempee == '' && $salary_ssempee == 0){
+    if($salary_esi_employee == '' && $salary_esi_employee == 0){
         $s_esiempee = 0;
     } else {
         $s_esiempee = $sta_salary / 100 * $salary_esi_employee;
     }
 
+    $s_esiemper = 0;
+    if($salary_esi_employer == '' && $salary_esi_employer == 0){
+        $s_esiempee = 0;
+    } else {
+        $s_esiemper = $sta_salary / 100 * $salary_esi_employer;
+    }
  // professional tax
     $s_protax = 0;
     if($salary_professional_tax == '' && $salary_professional_tax == 0){
@@ -162,6 +168,7 @@ $net_salary = number_format((float)$net_salary, 2, '.', '');
     <input type="hidden" name="salary_income_tax" value="<?php echo $s_income_tax;?>">
     <input type="hidden" name="salary_professional_tax" value="<?php echo $s_protax;?>">
     <input type="hidden" name="salary_esi_employee" value="<?php echo $s_esiempee;?>">
+    <input type="hidden" name="salary_esi_employer" value="<?php echo $s_esiemper;?>">
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">

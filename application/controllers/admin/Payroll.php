@@ -922,10 +922,25 @@ class Payroll extends MY_Controller
             } else {
                 $salary_income_tax = $sta_salary / 100 * $r->salary_income_tax;
             }
-            $statutory_deductions = $salary_ssempee + $salary_ssempeer + $salary_income_tax;
+            $salary_esi_employee = 0;
+            if ($r->salary_esi_employee == '' && $r->salary_esi_employee == 0) {
+                $salary_esi_employee = 0;
+            } else {
+                $salary_esi_employee = $sta_salary / 100 * $r->salary_esi_employee;
+            }
+
+            $salary_professional_tax = 0;
+            if ($r->salary_professional_tax == '' && $r->salary_professional_tax == 0) {
+                $salary_professional_tax = 0;
+            } else {
+                $salary_professional_tax = $r->salary_professional_tax;
+            }
+
+
+            $statutory_deductions = $salary_ssempee + $salary_esi_employee + $salary_income_tax+$salary_professional_tax;
             //if($r->salary_advance_paid == ''){
             //$data1 = $add_salary. ' - ' .$loan_de_amount. ' - ' .$net_salary . ' - ' .$salary_ssempee . ' - ' .$statutory_deductions;
-            $fnet_salary = $net_salary_default + $statutory_deductions;
+            $fnet_salary = $net_salary_default - $statutory_deductions;
             $net_salary = $fnet_salary - $loan_de_amount;
             $net_salary = number_format((float)$net_salary, 2, '.', '');
 
@@ -1120,6 +1135,7 @@ class Payroll extends MY_Controller
                 'salary_income_tax' => $this->input->post('salary_income_tax'),
                 'salary_professional_tax' => $this->input->post('salary_professional_tax'),
                 'salary_esi_employee' => $this->input->post('salary_esi_employee'),
+                'salary_esi_employer' => $this->input->post('salary_esi_employer'),
                 'salary_commission' => $this->input->post('salary_commission'),
                 'salary_claims' => $this->input->post('salary_claims'),
                 'salary_paid_leave' => $this->input->post('salary_paid_leave'),
@@ -1316,21 +1332,44 @@ class Payroll extends MY_Controller
                         $s_ssempee = $sta_salary / 100 * $empid->salary_ssempee;
                     }
                     $s_ssempeer = 0;
-                    /*if($salary_ssempeer == '' && $salary_ssempeer == 0){
-			$s_ssempeer = 0;
-		} else {
-			$s_ssempeer = $sta_salary / 100 * $salary_ssempeer;
-		}*/
+                    if ($empid->salary_ssempeer == '' && $empid->salary_ssempeer == 0) {
+                        $s_ssempeer = 0;
+                    } else {
+                        $s_ssempeer = $sta_salary / 100 * $empid->salary_ssempeer;
+                    }
                     $s_income_tax = 0;
                     if ($empid->salary_income_tax == '' && $empid->salary_income_tax == 0) {
                         $s_income_tax = 0;
                     } else {
                         $s_income_tax = $sta_salary / 100 * $empid->salary_income_tax;
                     }
-                    $statutory_deductions = $s_ssempee + $s_income_tax;
+                    //codelover138
+                    // esi deduction
+                    $s_esiempee = 0;
+                    if($empid->salary_esi_employee == '' && $empid->salary_esi_employee == 0){
+                        $s_esiempee = 0;
+                    } else {
+                        $s_esiempee = $sta_salary / 100 * $empid->salary_esi_employee;
+                    }
+
+                    $s_esiemper = 0;
+                    if($empid->salary_esi_employer == '' && $empid->salary_esi_employer == 0){
+                        $s_esiempee = 0;
+                    } else {
+                        $s_esiemper = $sta_salary / 100 * $empid->salary_esi_employer;
+                    }
+                    // professional tax
+                    $s_protax = 0;
+                    if($empid->salary_professional_tax == '' && $empid->salary_professional_tax == 0){
+                        $s_protax = 0;
+                    } else {
+                        $s_protax = $empid->salary_professional_tax;
+                    }
+
+                    $statutory_deductions = $s_ssempee + $s_income_tax+ $s_protax +$s_esiempee;
                     //if($r->salary_advance_paid == ''){
                     //$data1 = $add_salary. ' - ' .$loan_de_amount. ' - ' .$net_salary . ' - ' .$salary_ssempee . ' - ' .$statutory_deductions;
-                    $net_salary = $net_salary_default + $statutory_deductions;
+                    $net_salary = $net_salary_default - $statutory_deductions;
                     $net_salary = number_format((float)$net_salary, 2, '.', '');
 
                     $data = array(
@@ -1342,11 +1381,12 @@ class Payroll extends MY_Controller
                         'basic_salary' => $basic_salary,
                         'net_salary' => $net_salary,
                         'wages_type' => $empid->wages_type,
-                        'salary_ssempee' => $empid->salary_ssempee,
-                        'salary_ssempeer' => $empid->salary_ssempeer,
-                        'salary_income_tax' => $empid->salary_income_tax,
-                        'salary_professional_tax' => $this->input->post('salary_professional_tax'),
-                        'salary_esi_employee' => $this->input->post('salary_esi_employee'),
+                        'salary_ssempee' => $s_ssempee,
+                        'salary_ssempeer' => $s_ssempeer,
+                        'salary_income_tax' => $s_income_tax,
+                        'salary_professional_tax' => $s_protax,
+                        'salary_esi_employee' => $s_esiempee,
+                        'salary_esi_employer' => $s_esiemper,
                         'salary_commission' => $empid->salary_commission,
                         'salary_claims' => $empid->salary_claims,
                         'salary_paid_leave' => $empid->salary_paid_leave,
@@ -1867,9 +1907,16 @@ class Payroll extends MY_Controller
             $tbl .= '<nobr>' . $this->lang->line('xin_employee_set_ssempee') . '</nobr>';
         }
         $tbl .= '<br><br>';
-        if ($payment[0]->salary_ssempeer != '' || $payment[0]->salary_ssempeer != 0) {
-            $tbl .= '<nobr>' . $this->lang->line('xin_employee_set_ssempeer') . '</nobr>';
+
+        if ($payment[0]->salary_esi_employee != '' || $payment[0]->salary_esi_employee != 0) {
+            $tbl .= '<nobr>' . $this->lang->line('xin_employee_set_esi') . '</nobr>';
         }
+        $tbl .= '<br><br>';
+        if ($payment[0]->salary_ssempeer != '' || $payment[0]->salary_ssempeer != 0) {
+            $tbl .= '<nobr>' . $this->lang->line('xin_employee_set_inc_tax_pro') . '</nobr>';
+        }
+//        babu
+
         $tbl .= '
 							</td>
 							<td style="min-width:50px">
@@ -1885,9 +1932,16 @@ class Payroll extends MY_Controller
             $salary_ssempee = 0;
         }
         $tbl .= '<br><br>';
-        if ($payment[0]->salary_ssempeer != '' || $payment[0]->salary_ssempeer != 0) {
-            $salary_ssempeer = number_format($payment[0]->salary_ssempeer, 2, '.', ',');
-            $tbl .= '<nobr>(' . $salary_ssempeer . ')</nobr>';
+        if ($payment[0]->salary_esi_employee != '' || $payment[0]->salary_esi_employee != 0) {
+            $salary_esi_employee = number_format($payment[0]->salary_esi_employee, 2, '.', ',');
+            $tbl .= '<nobr>(' . $salary_esi_employee . ')</nobr>';
+        } else {
+            $salary_esi_employee = 0;
+        }
+        $tbl .= '<br><br>';
+        if ($payment[0]->salary_professional_tax != '' || $payment[0]->salary_professional_tax != 0) {
+            $salary_professional_tax = number_format($payment[0]->salary_professional_tax, 2, '.', ',');
+            $tbl .= '<nobr>(' . $salary_professional_tax . ')</nobr>';
         } else {
             $salary_ssempeer = 0;
         }
@@ -1958,7 +2012,7 @@ class Payroll extends MY_Controller
         endif;
 
         $total_earning = $bs + $allowance_amount + $overtime_amount;
-        $total_deduction = $loan_de_amount + $salary_income_tax + $salary_ssempee;
+        $total_deduction = $loan_de_amount + $salary_income_tax + $salary_ssempee + $salary_professional_tax + $salary_esi_employee;
         $total_net_salary = $total_earning - $total_deduction;
         $tbl .= '</td>
 							<td style="min-width:50px">

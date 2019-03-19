@@ -92,8 +92,8 @@
           <th style="width:100px;"><?php echo $this->lang->line('left_company');?></th>
           <th style="width:120px;"><?php echo $this->lang->line('dashboard_xin_status');?></th>
           <th style="width:120px;"><?php echo $this->lang->line('xin_e_details_date');?></th>
-<!--          <th style="width:120px;">--><?php //echo $this->lang->line('dashboard_clock_in');?><!--</th>-->
-<!--          <th style="width:120px;">--><?php //echo $this->lang->line('dashboard_clock_out');?><!--</th>-->
+          <th style="width:120px;"><?php echo $this->lang->line('dashboard_clock_in');?></th>
+          <th style="width:120px;"><?php echo $this->lang->line('dashboard_clock_out');?></th>
           <th style="width:120px;"><?php echo $this->lang->line('dashboard_late');?></th>
           <th style="width:120px;"><?php echo $this->lang->line('dashboard_early_leaving');?></th>
           <th style="width:120px;"><?php echo $this->lang->line('dashboard_overtime');?></th>
