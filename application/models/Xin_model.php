@@ -621,6 +621,21 @@ class Xin_model extends CI_Model {
 		}
 		
 	}
+
+    // get single user
+    public function read_all_user_xuinfo() {
+
+        $sql = 'SELECT * FROM xin_users';
+//        $binds = array($id);
+        $query = $this->db->query($sql);
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return null;
+        }
+
+    }
 	
 	// get single user
 	public function read_user_attendance_info() {

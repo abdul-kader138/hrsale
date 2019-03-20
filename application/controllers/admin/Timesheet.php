@@ -1676,9 +1676,11 @@ class Timesheet extends MY_Controller {
 		} else {
 			$employee_id = $this->input->get("user_id");
 		}
-		
-		$employee = $this->Xin_model->read_user_info($employee_id);
-		
+         $employee = $this->Xin_model->read_user_info($employee_id);
+
+//		if($this->input->get("user_id")) $employee = $this->Xin_model->read_user_info($employee_id);
+//		else $employee = $this->Xin_model->read_all_user_info();
+//
 		$start_date = new DateTime( $this->input->get("start_date"));
 		$end_date = new DateTime( $this->input->get("end_date") );
 		$end_date = $end_date->modify( '+1 day' ); 
