@@ -26,7 +26,7 @@
 <script src="<?php echo base_url();?>skin/hrsale_assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
 <script src="<?php echo base_url();?>skin/hrsale_assets/vendor/select2/dist/js/select2.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>skin/hrsale_assets/vendor/jquery-ui/jquery-ui.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>skin/hrsale_assets/vendor/Trumbowyg/dist/trumbowyg.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>skin/hrsale_assets/vendor/Trumbowyg/dist/trumbowyg.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>skin/hrsale_assets/vendor/clockpicker/dist/jquery-clockpicker.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>skin/hrsale_assets/vendor/toastr/toastr.min.js"></script>
 
